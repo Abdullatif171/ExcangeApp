@@ -1,0 +1,33 @@
+@model TagsViewModel
+
+<div class="row">
+        <div class="col-lg-8 bg-white p-4">
+            @foreach(var product in Model.Products)
+            {
+                <div class="card bg-transparent border-0 mb-3">
+                    <div class="row">
+                        <div class="col-4">
+                            <img src="~/img/@product.Image" class="img-fluid rounded" alt="">
+                        </div>
+                        <div class="col-8">
+                            <h5><a href="/posts/details/@product.Title" class="btn-link fw-bold">@product.Title</a></h5>
+                             <p> Yorum Sayısı : @product.Comment.Count</p>
+                             <p>@product.Price</p>
+                        </div>
+                    </div>
+                </div>
+                <hr class="my-3">
+            }
+            <nav>
+                <ul class="pagination">
+                    <li class="page-item"><a href="#" class="page-link">1</a></li>
+                    <li class="page-item"><a href="#" class="page-link">2</a></li>
+                    <li class="page-item"><a href="#" class="page-link">3</a></li>
+                </ul>
+            </nav>
+        </div>
+    <div class="col-lg-4">
+
+    </div>
+       
+</div>

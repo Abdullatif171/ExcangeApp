@@ -1,0 +1,99 @@
+﻿@model List<Products>
+<div class="p-4 mb-3 bg-light rounded-3 container-fluid">
+    <button class="button" onclick="TaggForm()">
+        <div class="circleLeft" id="Left-buttonForm" style="display: block;"></div>
+        <div class="circleRight" id="Right-buttonForm" style="display: none;"></div>
+    </button>
+    <div class="container-fluid py-2" id="ExchangeActive" style="display: block;">
+        <h3 class="display-5 fw-bold">Satış</h3>
+        <p class="col-md-8 fs-5">İhtiyacın Olanı Bul, Hayalini Kurduğun Fiyata Ulaş!</p>
+    </div>
+    <div class="container-fluid py-2" id="ExchangeInActive" style="display: none;">
+        <h3 class="display-5 fw-bold">Takas</h3>
+        <p class="col-md-8 fs-5">Eşyalarını Yenilerken Paran Cebinde Kalsın!</p>
+    </div>
+</div>
+<script>
+    function TaggForm() {
+        var ExchangeInActive = document.getElementById('ExchangeInActive');
+        var ExchangeActive = document.getElementById('ExchangeActive');
+        var ExchangeInActivePage = document.getElementById('ExchangeInActivePage');
+        var ExchangeActivePage = document.getElementById('ExchangeActivePage');
+        var RightButtonForm = document.getElementById('Right-buttonForm');
+        var LeftButtonForm = document.getElementById('Left-buttonForm');
+        if (RightButtonForm.style.display === 'none') {
+
+            RightButtonForm.style.display = 'block';
+            LeftButtonForm.style.display = 'none';
+
+            ExchangeActive.style.display = 'none';
+            ExchangeInActive.style.display = 'block';
+
+            ExchangeActivePage.style.display = 'block';
+            ExchangeInActivePage.style.display = 'none';
+
+        } else {
+
+            RightButtonForm.style.display = 'none';
+            LeftButtonForm.style.display = 'block';
+
+            ExchangeActive.style.display = 'block';
+            ExchangeInActive.style.display = 'none';
+
+            ExchangeActivePage.style.display = 'none';
+            ExchangeInActivePage.style.display = 'block';
+
+        }
+    }
+</script>
+
+<div class="d-flex p-3">
+    <div id="ExchangeInActivePage" style="display: block;">
+        <div class="row">
+        @foreach (var product in Model)
+        {
+            if (product.ExchangeState == false || product.SellState == true)
+            {
+                <div class="col-md-3">
+                <!--product excangeState is inactive -->
+                <a class=" m-2" href="#">
+                    <div class="container-fluid card">
+                        <img src="/img/@product.Image" alt="">
+                        <div class="card-body">
+                            <h6 class="">@product.Title</h6>
+                            <p>@product.Price TL</p>
+                            <p>Satıcı Yorumu: @product.Comment.Count</p>
+                        </div>
+
+                    </div>
+                </a>
+                </div>
+            }
+        }
+        </div>
+    </div>
+    <div id="ExchangeActivePage" style="display: none;">
+        <div class="row">
+        @foreach (var product in Model)
+        {
+            if (product.ExchangeState == true || product.SellState == false)
+            {
+                <div class="col-md-3">
+                    <!--product excangeState is active -->
+                    <a class="m-2" href="#">
+                        <div class="container-fluid card" >
+                            <img src="/img/@product.Image" alt="">
+                            <div class="card-body">
+                                <h6 class="">@product.Title</h6>
+                                <p>Takas tercihi :</p>
+                                <p>Satıcı Yorumu: @product.Comment.Count</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+        }
+    </div>
+    </div>
+
+</div>

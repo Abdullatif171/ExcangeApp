@@ -1,0 +1,26 @@
+@model Users
+<div class="row">
+    <div class="col-md-2">
+        <div class="bg-white p-4">
+           <img src="img/@Model.Image" class="img-fluid" alt="">
+        </div>
+    </div>
+    <div class="col-md-10">
+        <div class="bg-white p-4">
+           <h5>@Model.NameAndSurname ( @Model.UserName )</h5>
+           <p>@Model.Email</p>
+           <hr>
+           <div id="posts">
+            <h5 class="my-4">Satış ve Takas Mesajları</h5>
+            <ul class="list-group">
+                
+            </ul>
+           </div>
+           <div id="comments">
+            <h5 class="my-4">Alım va Takas Mesajları</h5>
+            <ul class="list-group">
+            </ul>
+           </div>
+        </div>
+    </div>
+</div>
