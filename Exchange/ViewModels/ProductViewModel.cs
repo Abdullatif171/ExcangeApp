@@ -12,10 +12,12 @@ namespace Exchange.ViewModels
         [Required]
         [Display(Name = "Ürün Açıklaması")]
         public string? Description { get; set; }
+        
+        public IFormFile? Image { get; set; }
 
         [Required]
         [Display(Name = "Price")]
-        public int Price { get; set; }
+        public decimal Price { get; set; }
 
         [Required]
         [Display(Name = "ExchangeState")]
@@ -26,6 +28,6 @@ namespace Exchange.ViewModels
         public bool SellState { get; set; }
 
         [Required]
-        public List<Tag> Tags { get; set; } = new List<Tag>();
+        public List<Tag> Tags { get; set; } = new ();
     }
 }

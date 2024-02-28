@@ -30,8 +30,7 @@ public class HomeController : Controller
 
     public async Task<IActionResult> CategoriesList(string tag)
     {
-        var mainCategories = _MainCategriesRepository.MainCategories.Include(x => x.Categories).ThenInclude(x => x.Tags).ToList();
-        ViewBag.MainCategories = mainCategories;
+        ViewBag.MainCategories = _MainCategriesRepository.MainCategories.Include(x => x.Categories).ThenInclude(x => x.Tags).ToList();
 
         var products = await _ProductRepository.Products.ToListAsync();
 

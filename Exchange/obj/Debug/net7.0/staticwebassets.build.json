@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wFBCMLcF9QHNCKHD1E0x2GJ9hm7lMQBdqTgAsY9p17A=",
+  "Hash": "w3oV4J13MitstIUZloSqddCCuxgnT7nOdmFjfdzFS8s=",
   "Source": "Exchange",
   "BasePath": "_content/Exchange",
   "Mode": "Default",
@@ -100,23 +100,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\HuaweiMatebook.jpg"
-    },
-    {
-      "Identity": "D:\\AspBootcamp\\Exchange\\wwwroot\\img\\logo.jpg",
-      "SourceId": "Exchange",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\AspBootcamp\\Exchange\\wwwroot\\",
-      "BasePath": "_content/Exchange",
-      "RelativePath": "img/logo.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\logo.jpg"
     },
     {
       "Identity": "D:\\AspBootcamp\\Exchange\\wwwroot\\img\\user.jpeg",

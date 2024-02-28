@@ -47,7 +47,7 @@
     }
 </script>
 
-<div class="d-flex p-3">
+<div class="d-flex p-3 bg-white">
     <div id="ExchangeInActivePage" style="display: block;">
         <div class="row">
         @foreach (var product in Model)
@@ -56,7 +56,7 @@
             {
                 <div class="col-md-3">
                 <!--product excangeState is inactive -->
-                <a class=" m-2" href="#">
+                <a class=" m-2" asp-controller="Products" asp-action="ProductDetails" asp-route-id="@product.ProductId">
                     <div class="container-fluid card">
                         <img src="/img/@product.Image" alt="">
                         <div class="card-body">

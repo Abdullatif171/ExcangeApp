@@ -9,6 +9,8 @@ namespace Exchange.Data.Abstract
         IQueryable<Products> Products{get;}
 
         void CreateProducts(Products products);
+        void ProductEdit(Products products);
+        void ProductEdit(Products products, int[] tagIds);
         
     }
 }

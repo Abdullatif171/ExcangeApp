@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<IdentityContext>(
@@ -15,9 +16,18 @@ builder.Services.AddDbContext<IdentityContext>(
 builder.Services.AddScoped<IProductRepository, EfProductRepository>();
 builder.Services.AddScoped<IMainCategoriesRepository, EfMainCategoriesRepository>();
 builder.Services.AddScoped<ITagRepository, EfTagsRepository>();
+builder.Services.AddScoped<ICommentRepository, EfCommentRepository>();
+builder.Services.AddScoped<IEmailSender, SmtpEmailSender>(i => new SmtpEmailSender(
+    builder.Configuration["EmailSender:Host"] ?? "defaultHost",
+    builder.Configuration.GetValue<int>("EmailSender:Port"),
+    builder.Configuration.GetValue<bool>("EmailSender:EnableSSL"),
+    builder.Configuration["EmailSender:Username"] ?? "defaultUsername",
+    builder.Configuration["EmailSender:Password"] ?? "defaultPassword"
+
+));
 
 
-builder.Services.AddIdentity<Users, UsersRole>().AddEntityFrameworkStores<IdentityContext>();
+builder.Services.AddIdentity<Users, UsersRole>().AddEntityFrameworkStores<IdentityContext>().AddDefaultTokenProviders();
 
 builder.Services.Configure<IdentityOptions>(options => {
     options.Password.RequiredLength = 6;
@@ -27,15 +37,16 @@ builder.Services.Configure<IdentityOptions>(options => {
     options.Password.RequireDigit = false;
 
     options.User.RequireUniqueEmail = true;
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+    options.Lockout.MaxFailedAccessAttempts = 5;
 });
 
 builder.Services.ConfigureApplicationCookie(options =>{
-    options.LoginPath ="/Account/Authentication";
+    options.LoginPath ="/Account/Login";
 });
 
 var app = builder.Build();
 
-SeedData.TestData(app);
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -52,7 +63,6 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-
 app.MapControllerRoute(
     name: "user_product",
     pattern: "AddProduct/",
@@ -68,5 +78,7 @@ app.MapControllerRoute(
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+SeedData.TestData(app);
 
 app.Run();

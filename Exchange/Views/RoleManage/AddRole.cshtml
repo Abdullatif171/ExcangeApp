@@ -1,0 +1,17 @@
+@model UsersRole
+
+<div class="d-flex justify-content-center">
+    <div style="min-width: 500px; min-height: 300px;">
+        <h3 style="text-align: start;">Kulanıcı Ekle</h3>
+        <div class="bg-white p-4">
+            <form asp-action="AddRole" method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="mb-3">
+                    <label asp-for="Name"></label>
+                    <input asp-for="Name" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary w-100 py-2">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>

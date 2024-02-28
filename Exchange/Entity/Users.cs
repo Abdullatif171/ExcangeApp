@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.Identity;
 namespace Exchange.Entity
 {
     public class Users : IdentityUser{
-
-        public string Name { get; set; } = string.Empty;
-        public string Surname { get; set; } = string.Empty;
-        public string Image { get; set; } = string.Empty;
+        
+        public string? Name { get; set; } 
+        public string? Surname { get; set; } 
+        public string? Image { get; set; }
         public string NameAndSurname
         {
             get{return this.Name + " " + this.Surname;}

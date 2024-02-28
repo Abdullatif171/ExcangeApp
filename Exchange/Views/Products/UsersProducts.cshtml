@@ -1,0 +1,45 @@
+@model List<Products>
+
+<div class="row">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Ürün Listem</h2>
+            </div>
+            <div class="col-md-6" style="text-align: right;">
+                <a class="btn btn-outline-primary"asp-controller="Products"
+                                asp-action="AddProduct">Ürün ekle
+                            </a>
+            </div>
+        </div>        
+        <table class="bg-white table tabled-bordered mt-3">
+            <thead>
+                <tr>
+                    <th style="width: 150px;">Image</th>
+                    <th>Title</th>
+                    <th>fiyatı</th>
+                    <th>Satış & Takas Durumu</th>
+                    <th style="width: 200px;"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td><img src="/img/@item.Image" class="img-fluid" alt=""></td>
+                        <td>@item.Title</td>
+                        <td>@item.Price</td>
+                        <td>
+                            <li>Takas Durumu : @item.ExchangeState</li>
+                            <li>Satış Durumu : @item.SellState</li>
+                        </td>
+                        <td>
+                            <a asp-controller="Products" asp-action="ProductDetails" asp-route-id="@item.ProductId" class="btn btn-sm btn-outline-primary m-2">Edit</a>
+                            <a href="#" class="btn btn-sm btn-outline-danger m-2">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

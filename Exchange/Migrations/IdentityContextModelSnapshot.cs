@@ -95,16 +95,16 @@ namespace Exchange.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("TEXT");
 
-                    b.Property<bool?>("ExchangeState")
+                    b.Property<bool>("ExchangeState")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Image")
                         .HasColumnType("TEXT");
 
-                    b.Property<decimal?>("Price")
+                    b.Property<decimal>("Price")
                         .HasColumnType("TEXT");
 
-                    b.Property<bool?>("SellState")
+                    b.Property<bool>("SellState")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Title")
@@ -113,8 +113,8 @@ namespace Exchange.Migrations
                     b.Property<string>("Url")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("UserId1")
                         .HasColumnType("TEXT");
@@ -168,7 +168,6 @@ namespace Exchange.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Image")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("LockoutEnabled")
@@ -178,7 +177,6 @@ namespace Exchange.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("NormalizedEmail")
@@ -202,7 +200,6 @@ namespace Exchange.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Surname")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("TwoFactorEnabled")

@@ -17,10 +17,6 @@
       "PackagePath": "staticwebassets\\img\\HuaweiMatebook.jpg"
     },
     {
-      "Id": "D:\\AspBootcamp\\Exchange\\wwwroot\\img\\logo.jpg",
-      "PackagePath": "staticwebassets\\img\\logo.jpg"
-    },
-    {
       "Id": "D:\\AspBootcamp\\Exchange\\wwwroot\\img\\user.jpeg",
       "PackagePath": "staticwebassets\\img\\user.jpeg"
     },

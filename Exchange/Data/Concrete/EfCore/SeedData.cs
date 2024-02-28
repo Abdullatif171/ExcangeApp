@@ -1,34 +1,116 @@
 using Exchange.Entity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 namespace Exchange.Data.Concrete.EfCore
 {
-    public class SeedData
+    public static class SeedData
     {
-        public static void TestData(IApplicationBuilder app)
+        private const string adminUser = "Admin";
+        private const string adminPassword = "Admin123";
+        public static async void TestData(IApplicationBuilder app)
         {
             var context = app.ApplicationServices.CreateAsyncScope().ServiceProvider.GetRequiredService<IdentityContext>();
 
             if (context != null)
             {
+
                 if (context.Database.GetPendingMigrations().Any())
                 {
                     context.Database.Migrate();
                 }
 
+                var userManager = app.ApplicationServices.CreateScope().ServiceProvider.GetRequiredService<UserManager<Users>>();
 
+                var user = await userManager.FindByNameAsync(adminUser);
+
+                if (user == null)
+                {
+                    user = new Users
+                    {
+                        Name = "Abdullatif",
+                        Surname = "Alpaslan",
+                        Image = "user.jpeg",
+                        UserName = adminUser,
+                        Email = "abdullatifalpaslan@outlook.com",
+                        PhoneNumber = "5455430947"
+                        
+                    };
+
+                    await userManager.CreateAsync(user, adminPassword);
+                }
 
                 if (!context.MainCategries.Any())
                 {
                     context.MainCategries.AddRange(
-                        new MainCategory { Text = "Kadın", Url = "Kadin" },
-                        new MainCategory { Text = "Erkek", Url = "Erkek" },
-                        new MainCategory { Text = "Anne & Çocuk", Url = "AnneAndCocuk" },
-                        new MainCategory { Text = "Ev & Mobilya", Url = "EvAndMobilya" },
-                        new MainCategory { Text = "Süpermarket", Url = "Supermarket" },
-                        new MainCategory { Text = "Kozmetik", Url = "Kozmetik" },
-                        new MainCategory { Text = "Ayakkabı & Çanta", Url = "AyakkabiAndCanta" },
-                        new MainCategory
-                        {
+                        new MainCategory { 
+                            Text = "Kadın",
+                            Url = "Kadin",
+                            Categories = new List<Category>{
+                                new Category { Text = "Giyim", Url = "Giyim",
+                                    Tags = new List<Tag>{
+                                        new Tag { Text = "Elbise", Url = "Elbise"},
+                                        new Tag { Text = "Tişört", Url = "Tisrot"},
+                                        new Tag { Text = "Gömlek", Url = "Gomlek"},
+                                        new Tag { Text = "Mont", Url = "Mont" }
+                                    }
+                                }
+                            }
+                        },
+                        new MainCategory {
+                            Text = "Erkek",
+                            Url = "Erkek",
+                            Categories = new List<Category>{
+                                new Category { Text = "Giyim", Url = "Giyim",
+                                    Tags = new List<Tag>{
+                                        new Tag { Text = "Tişört", Url = "Tisrot"},
+                                        new Tag { Text = "Şort", Url = "Sort"},
+                                        new Tag { Text = "Gömlek", Url = "Gomlek"},
+                                        new Tag { Text = "Mont", Url = "Mont" }
+                                    }
+                                }
+                            }
+                        },
+                        new MainCategory {
+                            Text = "Anne & Çocuk",
+                            Url = "AnneAndCocuk",
+                            Categories = new List<Category>{
+                                new Category { Text = "Bebek", Url = "Bebek",
+                                    Tags = new List<Tag>{
+                                        new Tag { Text = "Tişört", Url = "Tisrot"},
+                                        new Tag { Text = "Şort", Url = "Sort"},
+                                        new Tag { Text = "Elbise", Url = "Elbise"},
+                                        new Tag { Text = "Tulum", Url = "Tulum" }
+                                    }
+                                }
+                            }
+                        },
+                        new MainCategory {
+                            Text = "Ev & Mobilya",
+                            Url = "EvAndMobilya",
+                            Categories = new List<Category>{
+                                new Category { Text = "Mobilya", Url = "Mobilya",
+                                    Tags = new List<Tag>{
+                                        new Tag { Text = "Dolap", Url = "Dolap"},
+                                        new Tag { Text = "Zigon", Url = "Zigon"},
+                                        new Tag { Text = "Gardırop", Url = "Gardirop"},
+                                        new Tag { Text = "Sandalye", Url = "Sandalye" }
+                                    }
+                                }
+                            }
+                            },
+                        new MainCategory {
+                            Text = "Süpermarket",
+                            Url = "Supermarket",
+                            },
+                        new MainCategory {
+                            Text = "Kozmetik",
+                            Url = "Kozmetik",
+                            },
+                        new MainCategory {
+                            Text = "Ayakkabı & Çanta",
+                            Url = "AyakkabiAndCanta",
+                            },
+                        new MainCategory{
                             Text = "Elektrnik",
                             Url = "Elektrnik",
                             Categories = new List<Category>{
@@ -38,12 +120,24 @@ namespace Exchange.Data.Concrete.EfCore
                                         new Tag { Text = "Tablet", Url = "Tablet"},
                                         new Tag { Text = "Yazıcı", Url = "Yazici"},
                                         new Tag { Text = "Klavye", Url = "Klavye" }
-                        }
+                                    }
+                                }
                             }
-                            
-                        }
                         },
-                        new MainCategory { Text = "Spor & Outdoor", Url = "SporAndOutdoor" }
+                        new MainCategory {
+                            Text = "Spor & Outdoor",
+                            Url = "SporAndOutdoor",
+                            Categories = new List<Category>{
+                                new Category { Text = "Spor Üst Giyim", Url = "SporUstGiyim",
+                                    Tags = new List<Tag>{
+                                        new Tag { Text = "Atlet", Url = "Atlet"},
+                                        new Tag { Text = "Forma", Url = "Forma"},
+                                        new Tag { Text = "SweatShirt", Url = "SweatShirt"},
+                                        new Tag { Text = "Spor Mont", Url = "SporMont" }
+                                    }
+                                }
+                            }
+                            }
                     );
                     context.SaveChanges();
                 }
@@ -51,10 +145,30 @@ namespace Exchange.Data.Concrete.EfCore
                 if (!context.Users.Any())
                 {
                     context.Users.AddRange(
-                        new Users { UserName = "Latif", Image="user.jpeg", Name = "Abdllatif", Surname = "Alpaslan", Email = "info@latifa.com", }
-                    );
-                    context.SaveChanges();
-                }
+                        new Users
+                        {
+                            Name = "Abdullatif",
+                            Surname = "Alpaslan",
+                            Image = "user.jpeg",
+                            UserName = adminUser,
+                            Email = "info@latif.com",
+                            PhoneNumber = "5455430947",
+                            Product = new List<Products>{
+                                new Products {
+                                    Title = "Huawei MatebookB 512GB SSD Windows 11 Home 16'IPS Taşınabilir Bilgisayar",
+                                    Description = "Cihaz Ağırlığı: 1 - 2 kg, Ram (Sistem Belleği): 16 GB, Bluetooth Özelliği: Var, Optik Sürücü: Yok, Ekran Kartı Hafızası: Paylaşımlı, Dokunmatik Ekran: Yok, SSD Kapasitesi: 512 GB, HDMI: Var, Ekrk",
+                                    Url = "HuaweiMatebook",
+                                    ExchangeState = false,
+                                    SellState = true,
+                                    Tags = context.Tags.Take(3).ToList(),
+                                    Image = "HuaweiMatebook.jpg",
+                                    Price = 21.999m,
+                                }
+                            }
+                            
+                        });
+                        context.SaveChanges();
+                        }
 
                 if (!context.Products.Any())
                 {
@@ -93,8 +207,8 @@ namespace Exchange.Data.Concrete.EfCore
                     );
                     context.SaveChanges();
                 }
+
             }
         }
     }
 }
-
