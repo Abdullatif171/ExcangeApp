@@ -1,0 +1,17 @@
+D:\AspBootcamp\Agora\Services\bin\Debug\net7.0\Services.deps.json
+D:\AspBootcamp\Agora\Services\bin\Debug\net7.0\Services.dll
+D:\AspBootcamp\Agora\Services\bin\Debug\net7.0\Services.pdb
+D:\AspBootcamp\Agora\Services\bin\Debug\net7.0\Entities.dll
+D:\AspBootcamp\Agora\Services\bin\Debug\net7.0\Repositories.dll
+D:\AspBootcamp\Agora\Services\bin\Debug\net7.0\Entities.pdb
+D:\AspBootcamp\Agora\Services\bin\Debug\net7.0\Repositories.pdb
+D:\AspBootcamp\Agora\Services\obj\Debug\net7.0\Services.csproj.AssemblyReference.cache
+D:\AspBootcamp\Agora\Services\obj\Debug\net7.0\Services.GeneratedMSBuildEditorConfig.editorconfig
+D:\AspBootcamp\Agora\Services\obj\Debug\net7.0\Services.AssemblyInfoInputs.cache
+D:\AspBootcamp\Agora\Services\obj\Debug\net7.0\Services.AssemblyInfo.cs
+D:\AspBootcamp\Agora\Services\obj\Debug\net7.0\Services.csproj.CoreCompileInputs.cache
+D:\AspBootcamp\Agora\Services\obj\Debug\net7.0\Services.csproj.CopyComplete
+D:\AspBootcamp\Agora\Services\obj\Debug\net7.0\Services.dll
+D:\AspBootcamp\Agora\Services\obj\Debug\net7.0\refint\Services.dll
+D:\AspBootcamp\Agora\Services\obj\Debug\net7.0\Services.pdb
+D:\AspBootcamp\Agora\Services\obj\Debug\net7.0\ref\Services.dll

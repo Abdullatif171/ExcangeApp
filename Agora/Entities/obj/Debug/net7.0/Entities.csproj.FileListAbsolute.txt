@@ -1,0 +1,11 @@
+D:\AspBootcamp\Agora\Entities\bin\Debug\net7.0\Entities.deps.json
+D:\AspBootcamp\Agora\Entities\bin\Debug\net7.0\Entities.dll
+D:\AspBootcamp\Agora\Entities\bin\Debug\net7.0\Entities.pdb
+D:\AspBootcamp\Agora\Entities\obj\Debug\net7.0\Entities.GeneratedMSBuildEditorConfig.editorconfig
+D:\AspBootcamp\Agora\Entities\obj\Debug\net7.0\Entities.AssemblyInfoInputs.cache
+D:\AspBootcamp\Agora\Entities\obj\Debug\net7.0\Entities.AssemblyInfo.cs
+D:\AspBootcamp\Agora\Entities\obj\Debug\net7.0\Entities.csproj.CoreCompileInputs.cache
+D:\AspBootcamp\Agora\Entities\obj\Debug\net7.0\Entities.dll
+D:\AspBootcamp\Agora\Entities\obj\Debug\net7.0\refint\Entities.dll
+D:\AspBootcamp\Agora\Entities\obj\Debug\net7.0\Entities.pdb
+D:\AspBootcamp\Agora\Entities\obj\Debug\net7.0\ref\Entities.dll

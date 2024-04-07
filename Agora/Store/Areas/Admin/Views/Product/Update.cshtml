@@ -1,0 +1,96 @@
+@model ProductDtoForUpdate
+
+<div class="text-center">
+    <div class="display-6">Ürün Güncelleme</div>
+</div>
+
+<form method="post" asp-action="Update" enctype="multipart/form-data">
+
+    <input type="hidden" asp-for="ProductId">
+
+    <div class="text-danger" asp-validation-summary="All"></div>
+    <div class="row">
+        <div class="text-center col-md-4 images">
+            <img class="rounded shadow" style="width: 90%; height: auto;" src="@Model?.ImageUrl">
+        </div>
+        <div class="col-md-8">
+            <table class="table table-hover">
+                <tbody>
+                    <tr>
+                        <td>
+                            <label asp-for="CategoryId">Kategori</label>
+                        </td>
+                        <td>
+                            <select class="form-control" asp-items="@ViewBag.Categories" asp-for="CategoryId">
+                                <option value="">Select a category</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="ImageUrl">Ürün Resimleri</label></td>
+                        <td><input name="file" type="file" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="ProductName">Ürün Adı</label></td>
+                        <td><input asp-for="ProductName" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="Rating">Ürün Adı</label></td>
+                        <td>
+                            <div class="rating">
+                                <input type="radio" asp-for="Rating" id="star5" name="rating" value="5" /><label
+                                    for="star5"></label>
+                                <input type="radio" asp-for="Rating" id="star4" name="rating" value="4" /><label
+                                    for="star4"></label>
+                                <input type="radio" asp-for="Rating" id="star3" name="rating" value="3" /><label
+                                    for="star3"></label>
+                                <input type="radio" asp-for="Rating" id="star2" name="rating" value="2" /><label
+                                    for="star2"></label>
+                                <input type="radio" asp-for="Rating" id="star1" name="rating" value="1" /><label
+                                    for="star1"></label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="Price">Fiyat</label></td>
+                        <td><input asp-for="Price" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="ExchangeStatus">Satış/Takas</label></td>
+                        <td>
+                            <label>
+                                <input type="radio" asp-for="ExchangeStatus" value="true"> Takas
+                            </label>
+                            <label>
+                                <input type="radio" asp-for="ExchangeStatus" value="false"> Satış
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="ExcangeCategory">Tercih Edilen ürün</label></td>
+                        <td><input asp-for="ExcangeCategory" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="Summary">Özet</label></td>
+                        <td><input asp-for="Summary" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <div class="btn-group">
+                                <button class="btn btn-primary" type="submit">
+                                    <i class="fa fa-save"></i>
+                                    Güncelle
+                                </button>
+                                <a class="btn btn-outline-primary" asp-action="Index">
+                                    <i class="fa fa-list"></i>
+                                    Ürünler
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</form>

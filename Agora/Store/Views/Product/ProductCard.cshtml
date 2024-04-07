@@ -1,0 +1,29 @@
+@model Product
+
+<div class="col-auto my-2">
+    <div class="card" style="width: 15rem;">
+        <img src="@Model.ImageUrl" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">@Model.ProductName</h5>
+            <div class="rating my-1">
+                @for(int i=0;i<5;i++){
+                    if(i < Model.Rating){
+                        <i class="fa-solid fa-star" style="width: 12px;"></i>
+                    }else{
+                        <i class="fa-regular fa-star" style="width: 12px;"></i>
+                    }
+                }
+            </div>
+            @if (Model.ExchangeStatus == true)
+            {
+                <p class="card-text">Tercih Edilen ürün : @Model.ExcangeCategory</p>
+                <p class="card-text">@Model.Price.ToString("c")</p>
+            }
+            else
+            {
+                <p class="card-text">@Model.Price.ToString("c")</p>
+            }
+            <a class="btn btn-outline-primary" asp-action="Get" asp-route-id="@Model.ProductId">Get Details</a>
+        </div>
+    </div>
+</div>

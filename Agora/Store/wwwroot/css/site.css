@@ -1,0 +1,51 @@
+.rating {
+    display: inline-block;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    margin: 0 2px;
+    background-color: #ccc;
+    border-radius: 50%;
+    float: right;
+}
+
+.rating label:before {
+    content: "\2605";
+    color: #fff;
+    display: block;
+    text-align: center;
+    line-height: 23px;
+}
+
+.rating input:checked~label {
+    background-color: rgb(76, 0, 255);
+}
+
+.images {
+    height: 600px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dif-color{
+    width: 80px;
+    height: 100px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s;
+}
+
+.dif-color:hover{
+    transform: scale(1.1);
+}

@@ -1,0 +1,15 @@
+D:\AspBootcamp\Agora\Repositories\bin\Debug\net7.0\Repositories.deps.json
+D:\AspBootcamp\Agora\Repositories\bin\Debug\net7.0\Repositories.dll
+D:\AspBootcamp\Agora\Repositories\bin\Debug\net7.0\Repositories.pdb
+D:\AspBootcamp\Agora\Repositories\obj\Debug\net7.0\Repositories.csproj.AssemblyReference.cache
+D:\AspBootcamp\Agora\Repositories\obj\Debug\net7.0\Repositories.GeneratedMSBuildEditorConfig.editorconfig
+D:\AspBootcamp\Agora\Repositories\obj\Debug\net7.0\Repositories.AssemblyInfoInputs.cache
+D:\AspBootcamp\Agora\Repositories\obj\Debug\net7.0\Repositories.AssemblyInfo.cs
+D:\AspBootcamp\Agora\Repositories\obj\Debug\net7.0\Repositories.csproj.CoreCompileInputs.cache
+D:\AspBootcamp\Agora\Repositories\obj\Debug\net7.0\Repositories.dll
+D:\AspBootcamp\Agora\Repositories\obj\Debug\net7.0\refint\Repositories.dll
+D:\AspBootcamp\Agora\Repositories\obj\Debug\net7.0\Repositories.pdb
+D:\AspBootcamp\Agora\Repositories\obj\Debug\net7.0\ref\Repositories.dll
+D:\AspBootcamp\Agora\Repositories\bin\Debug\net7.0\Entities.dll
+D:\AspBootcamp\Agora\Repositories\bin\Debug\net7.0\Entities.pdb
+D:\AspBootcamp\Agora\Repositories\obj\Debug\net7.0\Repositories.csproj.CopyComplete
